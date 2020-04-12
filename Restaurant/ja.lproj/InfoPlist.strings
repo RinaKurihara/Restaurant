@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  Restaurant
+
+  Created by rina on 2020/04/12.
+  Copyright © 2020 rina kurihara. All rights reserved.
+*/
+
+"NSLocationWhenInUseUsageDescription" = "現在地を取得し、周辺のレストランを検索します。";
+
