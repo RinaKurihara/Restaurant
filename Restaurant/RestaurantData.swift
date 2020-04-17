@@ -16,14 +16,15 @@ var latitude = locationManager.lastLocation?.coordinate.latitude ?? 0
 var longitude = locationManager.lastLocation?.coordinate.longitude ?? 0
 var range = 2
 
-//レスポンス構造体
+//ショップイメージ画像
 struct Image_url: Codable {
     let shop_image1: String?
     let shop_image2: String?
     let qrcode: String?
 }
-
-struct Rest: Codable {
+//レストラン詳細
+struct Rest: Codable, Identifiable {
+    let uuid = UUID()
     let id: String
     let name: String
     let image_url: Image_url?  
@@ -31,47 +32,32 @@ struct Rest: Codable {
     let tel: String
     let opentime: String
 }
-
+//エラー
 struct Errors: Codable {
     let code: Int
     let message: String
 }
-
+//APIレスポンス
 struct Response: Codable {
     let errors: Errors?
     let rest: [Rest]
 }
 
-struct wrapResponse: Codable {
-    let response: Response
-}
-
-
-
+//API通信
 class Api {
     
-    func getPosts() {
+    func getRestData(completion: @escaping ([Rest]) -> ()) {
         
         guard let url = URL(string: "https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=\(keyid)&latitude=&longitude=") else { return }
         
         let task: URLSessionTask = URLSession.shared.dataTask(with: url, completionHandler: {(jsondata, response, error) in
             
             let decoder: JSONDecoder = JSONDecoder()
-//            do {
-                let json: Response = try! decoder.decode(Response.self, from: jsondata!)
-                print(json)
-                
-//            } catch {
-//                print("error: ", error.localizedDescription)
-//            }
-//            do {
-//                let posts = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
-//
-//                print(posts)
-//
-//            } catch {
-//                print("errorです")
-//            }
+                let RestData: Response = try! decoder.decode(Response.self, from: jsondata!)
+               
+            DispatchQueue.main.async {
+                completion(RestData.rest)
+            }
         })
         task.resume()
     }
