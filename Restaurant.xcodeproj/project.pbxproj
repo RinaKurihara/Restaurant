@@ -15,7 +15,7 @@
 		246425602443005800730117 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2464255E2443005800730117 /* LaunchScreen.storyboard */; };
 		246425682443008800730117 /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246425672443008800730117 /* LocationController.swift */; };
 		2464256B2443024000730117 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2464256D2443024000730117 /* InfoPlist.strings */; };
-		24F4FF7924434714009B0051 /* RestaurantData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F4FF7824434714009B0051 /* RestaurantData.swift */; };
+		24F4FF7924434714009B0051 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F4FF7824434714009B0051 /* Api.swift */; };
 		24F4FF7D24487378009B0051 /* RestList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F4FF7C24487378009B0051 /* RestList.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,7 +31,7 @@
 		246425672443008800730117 /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		2464256E2443026700730117 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		2464256F2443026700730117 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		24F4FF7824434714009B0051 /* RestaurantData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantData.swift; sourceTree = "<group>"; };
+		24F4FF7824434714009B0051 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		24F4FF7C24487378009B0051 /* RestList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,7 +69,7 @@
 				246425552443004F00730117 /* SceneDelegate.swift */,
 				246425572443004F00730117 /* ContentView.swift */,
 				246425672443008800730117 /* LocationController.swift */,
-				24F4FF7824434714009B0051 /* RestaurantData.swift */,
+				24F4FF7824434714009B0051 /* Api.swift */,
 				24F4FF7C24487378009B0051 /* RestList.swift */,
 				246425592443005800730117 /* Assets.xcassets */,
 				2464255E2443005800730117 /* LaunchScreen.storyboard */,
@@ -163,7 +163,7 @@
 			files = (
 				246425682443008800730117 /* LocationController.swift in Sources */,
 				24F4FF7D24487378009B0051 /* RestList.swift in Sources */,
-				24F4FF7924434714009B0051 /* RestaurantData.swift in Sources */,
+				24F4FF7924434714009B0051 /* Api.swift in Sources */,
 				246425542443004F00730117 /* AppDelegate.swift in Sources */,
 				246425562443004F00730117 /* SceneDelegate.swift in Sources */,
 				246425582443004F00730117 /* ContentView.swift in Sources */,

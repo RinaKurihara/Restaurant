@@ -8,34 +8,62 @@
 
 import SwiftUI
 import CoreLocation
+import Combine
+
+
+///APIパラメータ
+class Param: ObservableObject {
+    @Published var range = 2
+}
+
+//
+//struct SetURL: View {
+//    @ObservedObject var param = Param()
+//    var Latitude: Double {
+//        return locationManager.lastLocation?.coordinate.latitude ?? 0
+//    }
+//    
+//    var Longitude: Double {
+//        return locationManager.lastLocation?.coordinate.longitude ?? 0
+//    }
+//    func setUrl {
+//        
+//    }
+//    var body: some View {
+//        
+//    }
+//}
+//    
+//
+
 
 struct ContentView: View {
-    
+//    @EnvironmentObject var param: Param
     @ObservedObject var locationManager = LocationManager()
     
     var body: some View {
-        VStack {
-            Spacer()
-            Title()
-            
-            Text("現在地を取得し、周辺のレストランを検索します。")
-                .font(.subheadline)
-                .fontWeight(.regular)
-                .foregroundColor(Color.gray)
-            
-            Spacer()
-            
-            Text("半径何m以内を検索するか選べます。")
-                .font(.subheadline)
-                .fontWeight(.regular)
-                .foregroundColor(Color.gray)
-            
-            Search()
-            
+        NavigationView{
+            VStack {
+                Title()
+                Text("現在地を取得し、周辺のレストランを検索します。")
+                    .font(.subheadline)
+                    .fontWeight(.regular)
+                    .foregroundColor(Color.gray)
+                Spacer()
+                Text("半径何m以内を検索するか選べます。")
+                    .font(.subheadline)
+                    .fontWeight(.regular)
+                    .foregroundColor(Color.gray)
+                    .padding()
+
+                Search()
+            }
         }.padding()
     }
+
 }
 
+///タイトル
 struct Title: View {
     var body: some View {
         Text("Restaurant Searcher")
@@ -48,23 +76,24 @@ struct Title: View {
 
 
 struct Search: View {
-    @State var range = 2
+    @EnvironmentObject var param: Param
     
     var body: some View {
         VStack {
-            Picker(selection: $range, label: Text("set range")) {
+            ///半径選択
+            Picker(selection: self.$param.range, label: Text("set range")) {
                 Text("300m").tag(1)
                 Text("500m").tag(2)
                 Text("1000m").tag(3)
                 Text("2000m").tag(4)
                 Text("3000m").tag(5)
-            }.pickerStyle(SegmentedPickerStyle())
-                .frame(height: 100)
-            /*検索Button*/
-            Button(action:{
-//                RestList()
-            }){
+            }
+            .pickerStyle(SegmentedPickerStyle())
+            .frame(height: 90)
                 
+            
+            ///検索ボタン
+            NavigationLink (destination: RestList()) {
                 Text("検索")
                     .fontWeight(.semibold)
                     .padding()
@@ -73,32 +102,15 @@ struct Search: View {
                     .background(Color.orange)
                     .cornerRadius(50)
             }
-            .shadow(radius: 50)
-            
+            .shadow(radius: 13)
+            .padding()
         }
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+        .environmentObject(Param())
     }
-}
-/*位置情報を取得Button
-struct Location: View {
-    
-    @State var latitude = 0.0
-    @State var longitude = 0.0
-    
-    var body: some View {
-        
-        Button(action:{
-            print("位置情報")
-        }){
-            Text("位置情報を取得")
-                .font(.body)
-        }
-        
-    }
-}
-*/
 }

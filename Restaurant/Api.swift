@@ -7,15 +7,11 @@
 //
 
 import SwiftUI
+import Combine
 
 var locationManager = LocationManager()
 
-///パラメータ
-let keyid = "74b23a539fc6c885cc90952d648b6952"
-var latitude = locationManager.lastLocation?.coordinate.latitude ?? 0
-var longitude = locationManager.lastLocation?.coordinate.longitude ?? 0
-var range = 2
-
+/*RestData構造体*/
 //ショップイメージ画像
 struct Image_url: Codable {
     let shop_image1: String?
@@ -45,20 +41,38 @@ struct Response: Codable {
 
 //API通信
 class Api {
+    ///パラメータ
+    let keyid = "74b23a539fc6c885cc90952d648b6952"
+    var Latitude: Double {
+        return locationManager.lastLocation?.coordinate.latitude ?? 0
+    }
+
+    var Longitude: Double {
+        return locationManager.lastLocation?.coordinate.longitude ?? 0
+    }
+
     
-    func getRestData(completion: @escaping ([Rest]) -> ()) {
+    func getRestData(param: Param,completion: @escaping ([Rest]) -> ()) {
+        let latitude = Latitude
+        let longitude = Longitude
         
-        guard let url = URL(string: "https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=\(keyid)&latitude=&longitude=") else { return }
         
+        ///URL設定
+        guard let url = URL(string: "https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=\(keyid)&latitude=\(latitude)&longitude=\(longitude)&range=\(param.range)") else { return }
+        
+        //URL通信
         let task: URLSessionTask = URLSession.shared.dataTask(with: url, completionHandler: {(jsondata, response, error) in
-            
+
+            ///JSONデコード処理
             let decoder: JSONDecoder = JSONDecoder()
-                let RestData: Response = try! decoder.decode(Response.self, from: jsondata!)
-               
+            let RestData: Response = try! decoder.decode(Response.self, from: jsondata!)
+
             DispatchQueue.main.async {
                 completion(RestData.rest)
             }
         })
+        //task実行
         task.resume()
     }
+
 }
