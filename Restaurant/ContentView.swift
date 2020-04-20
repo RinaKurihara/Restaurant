@@ -16,27 +16,6 @@ class Param: ObservableObject {
     @Published var range = 2
 }
 
-//
-//struct SetURL: View {
-//    @ObservedObject var param = Param()
-//    var Latitude: Double {
-//        return locationManager.lastLocation?.coordinate.latitude ?? 0
-//    }
-//    
-//    var Longitude: Double {
-//        return locationManager.lastLocation?.coordinate.longitude ?? 0
-//    }
-//    func setUrl {
-//        
-//    }
-//    var body: some View {
-//        
-//    }
-//}
-//    
-//
-
-
 struct ContentView: View {
 //    @EnvironmentObject var param: Param
     @ObservedObject var locationManager = LocationManager()

@@ -15,17 +15,13 @@ struct RestList: View {
     
     var body: some View {
         VStack{
-            
-            List(RestData) { rest in
-                VStack {
-                    Text(rest.name)
-                    
 
-                    Text(rest.address)
-                }
+            List(RestData) { rest in
+                    Text(rest.name)
+
             }
             .onAppear {
-                Api().getRestData(param: self.param) {  (RestData) in
+                Api().getRestData(param: self.param) { (RestData) in
                     self.RestData = RestData
                     }
             }
