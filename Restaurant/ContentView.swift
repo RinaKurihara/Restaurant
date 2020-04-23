@@ -45,7 +45,7 @@ struct ContentView: View {
 ///タイトル
 struct Title: View {
     var body: some View {
-        Text("Restaurant Searcher")
+        Text("Restaurant")
             .font(.largeTitle)
             .fontWeight(.semibold)
             .foregroundColor(Color.orange)
