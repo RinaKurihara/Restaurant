@@ -11,27 +11,21 @@ import Combine
 
 struct RestList: View {
     @EnvironmentObject var param: Param
-    @State var RestData: [Rest] = []
+    @ObservedObject var response = Api()
+    
     
     var body: some View {
-        VStack{
-
-            List(RestData) { rest in
-                    Text(rest.name)
-
-            }
-            .onAppear {
-                Api().getRestData(param: self.param) { (RestData) in
-                    self.RestData = RestData
-                    }
-            }
+        List(response.rest) { (rest) in
+            RestRow(rest: rest)
         }
     }
 }
+
 
 struct RestList_Previews: PreviewProvider {
     static var previews: some View {
         RestList()
         .environmentObject(Param())
+        .environmentObject(Api())
     }
 }

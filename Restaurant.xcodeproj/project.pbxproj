@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24448D95244EBD6E00BF17C4 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24448D94244EBD6E00BF17C4 /* ImageLoader.swift */; };
+		24448D97244ED3C300BF17C4 /* URLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24448D96244ED3C300BF17C4 /* URLImage.swift */; };
+		24448D9924502CDC00BF17C4 /* RestRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24448D9824502CDC00BF17C4 /* RestRow.swift */; };
 		246425542443004F00730117 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246425532443004F00730117 /* AppDelegate.swift */; };
 		246425562443004F00730117 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246425552443004F00730117 /* SceneDelegate.swift */; };
 		246425582443004F00730117 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246425572443004F00730117 /* ContentView.swift */; };
@@ -20,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		24448D94244EBD6E00BF17C4 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		24448D96244ED3C300BF17C4 /* URLImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImage.swift; sourceTree = "<group>"; };
+		24448D9824502CDC00BF17C4 /* RestRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestRow.swift; sourceTree = "<group>"; };
 		246425502443004F00730117 /* Restaurant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restaurant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		246425532443004F00730117 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		246425552443004F00730117 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +77,9 @@
 				246425672443008800730117 /* LocationController.swift */,
 				24F4FF7824434714009B0051 /* Api.swift */,
 				24F4FF7C24487378009B0051 /* RestList.swift */,
+				24448D9824502CDC00BF17C4 /* RestRow.swift */,
+				24448D94244EBD6E00BF17C4 /* ImageLoader.swift */,
+				24448D96244ED3C300BF17C4 /* URLImage.swift */,
 				246425592443005800730117 /* Assets.xcassets */,
 				2464255E2443005800730117 /* LaunchScreen.storyboard */,
 				246425612443005800730117 /* Info.plist */,
@@ -166,7 +175,10 @@
 				24F4FF7924434714009B0051 /* Api.swift in Sources */,
 				246425542443004F00730117 /* AppDelegate.swift in Sources */,
 				246425562443004F00730117 /* SceneDelegate.swift in Sources */,
+				24448D95244EBD6E00BF17C4 /* ImageLoader.swift in Sources */,
 				246425582443004F00730117 /* ContentView.swift in Sources */,
+				24448D97244ED3C300BF17C4 /* URLImage.swift in Sources */,
+				24448D9924502CDC00BF17C4 /* RestRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
