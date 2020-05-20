@@ -17,7 +17,6 @@ class Param: ObservableObject {
 }
 
 struct ContentView: View {
-//    @EnvironmentObject var param: Param
     @ObservedObject var locationManager = LocationManager()
     
     var body: some View {
@@ -27,12 +26,12 @@ struct ContentView: View {
                 Text("現在地を取得し、周辺のレストランを検索します。")
                     .font(.subheadline)
                     .fontWeight(.regular)
-                    .foregroundColor(Color.gray)
+                    .foregroundColor(.gray)
                 Spacer()
                 Text("半径何m以内を検索するか選べます。")
                     .font(.subheadline)
                     .fontWeight(.regular)
-                    .foregroundColor(Color.gray)
+                    .foregroundColor(.gray)
                     .padding()
 
                 Search()
@@ -60,7 +59,7 @@ struct Search: View {
     var body: some View {
         VStack {
             ///半径選択
-            Picker(selection: self.$param.range, label: Text("set range")) {
+            Picker(selection: self.$param.range, label: EmptyView()) {
                 Text("300m").tag(1)
                 Text("500m").tag(2)
                 Text("1000m").tag(3)

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct RestRow: View {
     var rest : Rest
-    @State var Url = ""
+    @State private var Url = ""
     
     
     var body: some View {
@@ -28,7 +28,7 @@ struct RestRow_Previews: PreviewProvider {
     static var previews: some View {
         Group{
             RestRow(rest:Api().rest[0])
-            .previewLayout(.fixed(width: 300, height: 400))
+            .previewLayout(.fixed(width: 300, height: 400)) //仮
         }
     }
 }

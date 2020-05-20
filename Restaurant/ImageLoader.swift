@@ -11,6 +11,7 @@ import Foundation
 class ImageLoader: ObservableObject {
     @Published var downloadData: Data? = nil
     
+    //画像ダウンロード
     func downloadImage(url: String) {
         guard let imageURL = URL(string: url) else { return }
         

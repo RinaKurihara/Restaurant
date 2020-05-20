@@ -26,7 +26,8 @@ struct URLImage: View {
             
         } else {
             return VStack {
-                Image(uiImage: UIImage(systemName: "placeholder")!).resizable()
+                Image(systemName: "placeholder")
+                    .resizable()
             }
         }
     }
@@ -34,6 +35,6 @@ struct URLImage: View {
 
 struct URLImage_Previews: PreviewProvider {
     static var previews: some View {
-        URLImage(url:"https://rimage.gnst.jp/rest/img/gc39274r0000/t_0063.jpg")
+        URLImage(url:"https://rimage.gnst.jp/rest/img/gc39274r0000/t_0063.jpg") //仮
     }
 }
